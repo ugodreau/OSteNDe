@@ -30,7 +30,7 @@ except:
     im_cont.warning('No available picture of the stemma')
 
 if col_intro_1.button("What is this stemma ?", key='rnd_button'):
-    st.session_state['stemma_to_display'] = database.loc[random_index]
+    st.session_state['stemma_to_display'] = random_entry # database.loc[random_index]
     st.switch_page('pages/Display_record.py')
 
 col_intro_2.markdown(
