@@ -1,0 +1,6 @@
+networkx
+altair
+pandas
+pygraphviz
+github
+pydot
