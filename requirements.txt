@@ -1,6 +1,7 @@
 networkx
 altair
 pandas
+graphviz
 pygraphviz
 pygithub
 pydot
