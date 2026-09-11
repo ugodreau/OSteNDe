@@ -226,7 +226,10 @@ def load_tree(file):
 
     # convert DOT file to nx.DiGraph object
     try:
-        G = nx_agraph.from_agraph(pygraphviz.AGraph(str(stemma_dot)))
+        with open('stemma_temp.gv', 'w') as f:
+            f.write(stemma_dot)
+        # G = nx_agraph.from_agraph(pygraphviz.AGraph(str(stemma_dot)))
+        G = nx.nx_pydot.read_dot('stemma_temp.gv')
     except Exception as e:
         raise ValueError("Invalid dot file:\n{e}")
     
