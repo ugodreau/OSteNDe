@@ -12,7 +12,6 @@ import io
 from pathlib import Path
 from collections import Counter
 import time
-import pygraphviz
 import networkx as nx
 from networkx.drawing import nx_agraph
 import utils as u
