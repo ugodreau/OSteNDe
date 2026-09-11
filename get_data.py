@@ -205,6 +205,7 @@ def create_database():
             except  Exception as e:
                 warning = f"Couldn't read {submission_path}/stemma.gv (ignored): {e}"
                 st.session_state['data_warnings'].append(warning)
+                line['stemmataGraph'] = None
                 continue
             
             # load (if any) png image of original stemma
@@ -263,11 +264,12 @@ def compute_global_stats():
     wits_number = []
     patologies = []
     for t in OS_trees:
-        if not t.nodes[u.tree_tools.root(t)]['witness'] and t.out_degree(u.tree_tools.root(t)) == 1:
-            t.remove_node(u.tree_tools.root(t))
-        root_degrees.append(u.tree_tools.degree(t, u.tree_tools.root(t)))
+        if not t==None:
+            if not t.nodes[u.tree_tools.root(t)]['witness'] and t.out_degree(u.tree_tools.root(t)) == 1:
+                t.remove_node(u.tree_tools.root(t))
+            root_degrees.append(u.tree_tools.degree(t, u.tree_tools.root(t)))
 
-        wits_number.append(u.tree_tools.witness_nb(t))
+            wits_number.append(u.tree_tools.witness_nb(t))
     prop_bifid = Counter(root_degrees)[2] / len(db)
     stats['Proportion of bifid stemmata'] = f'{100 * prop_bifid} %'
     stats['Witness number distribution']= dict(Counter(wits_number))
