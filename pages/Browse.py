@@ -4,8 +4,6 @@ import pandas as pd
 from functools import reduce
 import time
 from utils.misc import convert_dates
-from streamlit_timeline import st_timeline
-import plotly.graph_objects as go
 import altair as alt
 from utils.misc import iso639_to_name
 
