@@ -4,4 +4,4 @@ pandas
 pygraphviz
 pygithub
 pydot
-yaml
+pyyaml
