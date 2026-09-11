@@ -205,7 +205,7 @@ def create_database():
             except  Exception as e:
                 warning = f"Couldn't read {submission_path}/stemma.gv (ignored): {e}"
                 st.session_state['data_warnings'].append(warning)
-                line['stemmataGraph'] = None
+                line['stemmaGraph'] = None
                 continue
             
             # load (if any) png image of original stemma
